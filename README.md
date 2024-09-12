@@ -4,11 +4,9 @@ Henry Xie
 October 1, 2024
 
 ## Overview
-In recent years, Large Language Models (LLMs) have become more powerful than ever, with the ability to complete increasingly complex tasks. One task that Large Language Models have the ability to be employed in is scoring. Employing LLMs in scoring tasks is a topic that has been developed extensively by the improvements in LLMs in the past few years. However, because 
-LLMs and LLM scoring are such recent topics, we do not understand the behind-the-scenes of LLM scoring. It is relatively unknown the process behind LLM scoring.
+In recent years, Large Language Models (LLMs) have become more powerful than ever, with the ability to complete increasingly complex tasks. One task that Large Language Models have potentials in is scoring, that is, assigning a number from a certain scale to a subject in question. Employing LLMs in scoring tasks is powerful and convenient in that it can help provide a quick measure of the subject. However, because LLMs and LLM scoring are recent topics, the process behind LLM scoring is often obsecure.
 
-In this study, we attempt to understand how LLMs score, specifically how they measure and score empathy. We propose methods of modeling the performance of current state-of-the-art LLMs and fine-tuned LLMs when responses on their empathy. We further introduce a set of 15 subfactors combined with a code provided in the dataset employed in this study to help us in our 
-comprehension of how LLMs score and understand empathy. The code in this repository contains the approaches we introduced in our study.
+In this study, we attempt to understand how LLMs score, specifically how they measure and score empathy about responses in dialogues. We propose methods for modeling the performance of current state-of-the-art LLMs and fine-tuned LLMs when they score dialogue responses on their empathy. We further introduce a set of 15 subfactors combined with the Motivational Interviewing Treatment Integrity (MITI) code provided in the dataset employed in this study to help us in our comprehension of how LLMs score and understand empathy. The source code in this repository contains the prototype implementations of the approaches we introduced in our study.
 
 ## About this Repository
 This repository contains the code required in producing the results in our study on measuring empathy of responses in dialogues.
