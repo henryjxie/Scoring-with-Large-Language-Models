@@ -38,5 +38,5 @@ V2 subfactor set by giving each subfactor a score from 1 to 10. The third option
 
 ## Dependencies
 1. You will need to install Python version 3.12.4 on your computer.
-2. You will need to import the openai python api package. You can do this python running `pip install openai`.
+2. You will need to import the openai python api package. You can do this by running `pip install openai`.
 3. This study requires you to have an OpenAI API key. You will need to store your API key in a variable called `OPENAI_API_KEY`.
