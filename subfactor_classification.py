@@ -186,7 +186,7 @@ def train_classifiers (train, test):
 
     print('')
     print("Using KBest Feature Selector: ")
-    for i in range(15):
+    for i in range(30):
         # Initialize the model
         model = LogisticRegression(max_iter=1000)
         # model = DecisionTreeClassifier()
@@ -198,8 +198,16 @@ def train_classifiers (train, test):
         X_train_new = selector.fit_transform(X_train, y_train)
         X_test_new = selector.transform(X_test)
 
+        # model = DecisionTreeClassifier()
+        # model = RandomForestClassifier()
+        # model = SVC()
+        # model = MLPClassifier(hidden_layer_sizes=(64, 32),  # Number of neurons in the hidden layer
+        #                     activation='relu',            # Activation function
+        #                     solver='adam',                # Optimization algorithm
+        #                     max_iter=5000,                 # Maximum number of iterations
+        #                     random_state=42)              # For reproducibility
+
         # Train model
-        model = RandomForestClassifier()
         model.fit(X_train_new, y_train)
 
         # Evaluate model
@@ -208,7 +216,7 @@ def train_classifiers (train, test):
 
     print('')
     print("Using RFE Feature Selector: ")
-    for i in range(15):
+    for i in range(30):
         # Initialize the model
         model = LogisticRegression(max_iter=1000)
         # model = DecisionTreeClassifier()
@@ -229,6 +237,8 @@ def train_classifiers (train, test):
         X_train_selected = rfe.transform(X_train)
         # print("Shape of X with selected features:", X_train_selected.shape)
 
+        # model = DecisionTreeClassifier()
+        # model = RandomForestClassifier()
         # model = SVC()
         # model = MLPClassifier(hidden_layer_sizes=(64, 32),  # Number of neurons in the hidden layer
         #                     activation='relu',            # Activation function
@@ -258,6 +268,8 @@ def score_15v1():
 
     openai_api_key = os.environ.get('OPENAI_API_KEY')
     client = OpenAI(api_key=openai_api_key)
+
+    # client = OpenAI(api_key="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")
 
     df = pd.read_csv('dataset_and_ratings.csv')
 
@@ -318,7 +330,7 @@ def score_15v1():
     f = open('gpt4o-mini-15v1-scores-new.txt', 'w')
 
     for index, row in df.iterrows():
-        if index > 10: # Remove this to score the entire dataset
+        if index > 10: 
             break
         if index % 10 == 0:
             print(index)
@@ -353,6 +365,8 @@ def score_15v2():
 
     openai_api_key = os.environ.get('OPENAI_API_KEY')
     client = OpenAI(api_key=openai_api_key)
+
+    # client = 0(api_key="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")
 
     df = pd.read_csv('dataset_and_ratings.csv')
 
@@ -413,7 +427,7 @@ def score_15v2():
     f = open('gpt4o-mini-15v2-scores-new.txt', 'w')
 
     for index, row in df.iterrows():
-        if index > 10: # Remove this to score the entire dataset
+        if index > 10: 
             break
         if index % 10 == 0:
             print(index)
@@ -447,6 +461,11 @@ def classify_15v2():
 
     print('Classify with scores for 15V2 feature set...')
     df = pd.read_csv('gpt4o-mini-15v2-ratings.csv')
+
+    # balanced_df = balance_dataset(df, "rating")
+
+    # # Creating the root balancing file
+    # balanced_df.to_csv('balanced_gpt4o-mini-15v2-ratings.csv', sep=',', index=False)
 
     # Balancing 15v2 dataset according to unified balanced dataset 
     u_b_df = pd.read_csv('unified_balanced_dataset.csv')
@@ -487,6 +506,11 @@ def classify_15v2_miti ():
     # print('')
     print('15V2 + Miti Code ...')
     df = pd.read_csv('gpt4o-mini-15v2-ratings.csv')
+
+    # balanced_df = balance_dataset(df, "rating")
+
+    # # Creating the root balancing file
+    # balanced_df.to_csv('balanced_gpt4o-mini-15v2-ratings.csv', sep=',', index=False)
 
     # Balancing 15v2 dataset according to unified balanced dataset 
     u_b_df = pd.read_csv('unified_balanced_dataset.csv')
