@@ -269,8 +269,6 @@ def score_15v1():
     openai_api_key = os.environ.get('OPENAI_API_KEY')
     client = OpenAI(api_key=openai_api_key)
 
-    # client = OpenAI(api_key="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")
-
     df = pd.read_csv('dataset_and_ratings.csv')
 
     empathy_scoring = "Empathy is the ability to understand and share the feelings of another person. " + \
@@ -365,8 +363,6 @@ def score_15v2():
 
     openai_api_key = os.environ.get('OPENAI_API_KEY')
     client = OpenAI(api_key=openai_api_key)
-
-    # client = 0(api_key="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")
 
     df = pd.read_csv('dataset_and_ratings.csv')
 
